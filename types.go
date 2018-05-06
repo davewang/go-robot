@@ -1,8 +1,10 @@
-package okexmarketcap
+package okexmarket
 
-// Interface interface
-type Interface interface {
-	GetUsdtBtcTickerData() (TickerDate, start int64, end int64)
+
+// core interface
+type Context struct {
+	ApiKey string
+	ApiSecret string
 
 }
 // TickerData struct
@@ -18,3 +20,19 @@ type Ticker struct{
 	Buy string `json:"buy"`
 	Sell string `json:"sell"`
 }
+
+type DepthData struct{
+	Asks [][]float64 `json:"asks"`
+	Bids [][]float64 `json:"bids"`
+}
+
+
+type TradeData struct{
+	Date int64  `json:"date"`
+	DateMS int64 `json:"date_ms"`
+	Price float64 `json:"price"`
+	Amount float64 `json:"amount"`
+	TId int64 `json:"tid"`
+	Type string `json:"type"`
+}
+
